@@ -69,10 +69,10 @@ public class HtmlAgilityPackApp : ViewBase
             if (document == null)
                 return string.Empty;
             string links = string.Empty;
-            var metaTags = document.DocumentNode.SelectNodes("//a");
-            if (metaTags != null)
+            var linksTags = document.DocumentNode.SelectNodes("//a");
+            if (linksTags != null)
             {
-                foreach (var tag in metaTags)
+                foreach (var tag in linksTags)
                 {
                     if (tag.Attributes["href"] != null && (tag.Attributes["href"].Value.StartsWith("https://") || tag.Attributes["href"].Value.StartsWith("http://")))
                         links += tag.Attributes["href"].Value + System.Environment.NewLine;
